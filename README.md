@@ -8,15 +8,25 @@ Configuration File
 The server settings can be specified using an optional JSON file named `ocrServer.config.json`.
 All fields are optional.
 
-```json
+```javascript
 {
-  "hostname": "<string>",					// The IP address or host name of the server to listen to
-  "port": <number>,							  // The port number of the server to listen to
-  "ssl_certificate": "<string>",	// Path to the file containing the SSL certificate (PEM format)
-  "ssl_private_key": "<string>",	// Path to the file containing the SSL private key (PEM format)
-  "api_keys": [								    // An array of authorized API keys
-    "<string>",								    // Do not specify any API key to allow anonymous calls
-    "<string>"
+  // The IP address or host name of the server to listen to
+  "hostname": "localhost",
+  
+  // The port number of the server to listen to
+  "port": 8080,
+  
+  // Path to the file containing the SSL certificate (PEM format)
+  "ssl_certificate": "cert.pem",
+  
+  // Path to the file containing the SSL private key (PEM format)
+  "ssl_private_key": "key.pem",
+  
+  // An array of authorized API keys
+  // Do not specify any API key to allow anonymous access
+  "api_keys": [
+    "Key 1",								        
+    "Key 2"
   ]
 }
 ```
@@ -26,14 +36,14 @@ Command Line Options
 The command line options will overwrite the settings specified by the configuration file.
 The following command line options are available:
 
-Option         | Argument    | Default | Description                                           
----------------|-------------|---------|--------------------------------------------------------------
-    --help	   |             |         | Displays the list of command line options
--h, --hostname | Name or IP  | 0.0.0.0 | The IP address or host name of the server to listen to
--p, --port     | Port Number | 8080    | The port number of the server to listen to
--c, --sslcert  | File Path   |         | Path to the file containing the SSL certificate (PEM format)
--p, --sslkey   | File Path   |         | Path to the file containing the SSL private key (PEM format)
--a, --apikey   | API Key     |         | The authorized API key, multiple keys are allowed
+| Option         | Argument    | Default | Description                                                  |
+|----------------|-------------|---------|--------------------------------------------------------------|
+|     --help	   |             |         | Displays the list of command line options                    |
+| -h, --hostname | Name or IP  | 0.0.0.0 | The IP address or host name of the server to listen to       |
+| -p, --port     | Port Number | 8080    | The port number of the server to listen to                   |
+| -c, --sslcert  | File Path   |         | Path to the file containing the SSL certificate (PEM format) |
+| -p, --sslkey   | File Path   |         | Path to the file containing the SSL private key (PEM format) |
+| -a, --apikey   | API Key     |         | The authorized API key, multiple keys are allowed            |
 
 
 API Endpoints
