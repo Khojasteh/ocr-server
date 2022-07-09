@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "6878508e-2e30-48ff-a441-fb6c5de4bd2b",
+		"name": "OCR Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Supported Languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ocr/languages",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ocr",
+						"languages"
+					]
+				},
+				"description": "Returns the sorted list of supported languages."
+			},
+			"response": []
+		},
+		{
+			"name": "Image to Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "image/jpeg"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "./ocrServer.postman.sample.jpg"
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ocr/:language",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ocr",
+						":language"
+					],
+					"variable": [
+						{
+							"key": "language",
+							"value": "eng",
+							"description": "The language of text to be extracted"
+						}
+					]
+				},
+				"description": "Extracts text in the specified language from an image."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "APIKEY 1234",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "69d167b4-96ce-407d-b554-9d7913fccd19",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9a11a2a5-543a-49cb-a1b0-4b794bb9677c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "50b27096-9a55-42fd-ac23-b9938e259c10",
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
