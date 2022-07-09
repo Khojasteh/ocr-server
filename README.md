@@ -1,5 +1,9 @@
-Tesseract
----------
+OCR Server
+==========
+OCR Server is a simple stand-alone RESTful API for converting images of typed, handwritten or printed text into plain text, powered by [Tesseract](https://github.com/tesseract-ocr/tesseract) open source OCR engine.
+
+Preperation of Tesseract
+------------------------
 Get the language files of Tesseract from https://github.com/tesseract-ocr/tessdata.
 Make sure the `TESSDATA_PREFIX` environment variable is set to your `tessdata` directory.
 
